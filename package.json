@@ -1,0 +1,11 @@
+{
+  "name": "neuro-id",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NEURO-ID — Digital Identity and Wallet for NEUROTOKEN platform",
+  "scripts": {
+    "dev:service": "pnpm --filter neuro-id-service dev",
+    "build:service": "pnpm --filter neuro-id-service build",
+    "start:service": "pnpm --filter neuro-id-service start"
+  }
+}

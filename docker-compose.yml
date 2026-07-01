@@ -1,0 +1,41 @@
+version: "3.9"
+
+# NEURO-ID Service — standalone docker-compose for development
+# Assumes neuron-net and its services (postgres, minio, xmpp) are up from neurotoken-platform
+
+networks:
+  neuron-net:
+    external: true
+
+services:
+  neuro-id-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: neuron-neuro-id
+    restart: unless-stopped
+    networks:
+      - neuron-net
+    ports:
+      - "6000:6000"
+    environment:
+      PORT: 6000
+      NODE_ENV: development
+      DATABASE_URL: postgresql://neuron:neuron_dev_secret@postgres:5432/neuron_platform
+      SMARTLAB_SERVICE_URL: http://smartlab-service:5000
+      NEUROPAY_SERVICE_URL: http://neuropay-service:4000
+      NEUROCOIN_SERVICE_URL: http://neurocoin-service:3001
+      MINIO_ENDPOINT: minio
+      MINIO_PORT: 9000
+      MINIO_ACCESS_KEY: neuron_minio
+      MINIO_SECRET_KEY: neuron_minio_secret
+      MINIO_BUCKET: neuro-id
+      XMPP_HOST: xmpp
+      XMPP_PORT: 5280
+      JWT_SECRET: ${NEURO_ID_JWT_SECRET:-neuro-id-dev-secret-key-minimum-32-chars}
+      USD_RATE_API_URL: https://api.exchangerate-api.com/v4/latest/USD
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:6000/health || exit 1"]
+      interval: 15s
+      timeout: 10s
+      retries: 5

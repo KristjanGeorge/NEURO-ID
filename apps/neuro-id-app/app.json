@@ -1,0 +1,51 @@
+{
+  "expo": {
+    "name": "NEURO-ID",
+    "slug": "neuro-id",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0A1628"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "io.lynxnode.neuroid",
+      "infoPlist": {
+        "NSCameraUsageDescription": "NEURO-ID uses the camera for biometric selfie verification and QR scanning.",
+        "NSFaceIDUsageDescription": "NEURO-ID uses Face ID for secure authentication.",
+        "NSPhotoLibraryUsageDescription": "NEURO-ID needs access to photos for document uploads."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0A1628"
+      },
+      "package": "io.lynxnode.neuroid",
+      "permissions": [
+        "USE_BIOMETRIC",
+        "USE_FINGERPRINT",
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
+      ]
+    },
+    "plugins": [
+      "expo-local-authentication",
+      "expo-camera",
+      "expo-image-picker",
+      [
+        "expo-barcode-scanner",
+        { "cameraPermission": "NEURO-ID needs camera access to scan QR codes." }
+      ]
+    ],
+    "extra": {
+      "neuroIdServiceUrl": "http://localhost:6000"
+    }
+  }
+}

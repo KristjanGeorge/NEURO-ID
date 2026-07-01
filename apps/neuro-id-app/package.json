@@ -1,0 +1,44 @@
+{
+  "name": "neuro-id-app",
+  "version": "1.0.0",
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "expo": "~51.0.0",
+    "expo-local-authentication": "~14.0.1",
+    "expo-camera": "~15.0.16",
+    "expo-barcode-scanner": "~13.0.1",
+    "expo-crypto": "~13.0.2",
+    "expo-image-picker": "~15.0.7",
+    "expo-secure-store": "~13.0.2",
+    "expo-file-system": "~17.0.1",
+    "expo-sharing": "~12.0.1",
+    "expo-status-bar": "~1.12.1",
+    "react": "18.2.0",
+    "react-native": "0.74.5",
+    "react-native-qrcode-svg": "^6.3.2",
+    "@react-navigation/native": "^6.1.18",
+    "@react-navigation/stack": "^6.4.1",
+    "@react-navigation/bottom-tabs": "^6.6.1",
+    "react-native-screens": "~3.31.1",
+    "react-native-safe-area-context": "4.10.5",
+    "react-native-gesture-handler": "~2.19.0",
+    "react-native-reanimated": "~3.10.1",
+    "axios": "^1.7.9",
+    "@tanstack/react-query": "^5.62.7",
+    "zustand": "^5.0.2",
+    "react-native-svg": "15.2.0",
+    "@expo/vector-icons": "^14.0.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "typescript": "~5.3.3",
+    "@types/react": "~18.2.79",
+    "@types/react-native": "~0.73.0"
+  }
+}
